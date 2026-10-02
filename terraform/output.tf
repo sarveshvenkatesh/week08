@@ -1,6 +1,6 @@
 output "resource_group_name" {
   description = "Name of the resource group"
-  value       = data.azurerm_resource_group.rg.name
+  value       = azurerm_resource_group.rg.name
 }
 
 output "acr_name" {
@@ -44,7 +44,7 @@ output "aks_get_credentials_command" {
   value = join(" ", [
     "az aks get-credentials",
     "--resource-group",
-    data.azurerm_resource_group.rg.name,
+    azurerm_resource_group.rg.name,
     "--name",
     azurerm_kubernetes_cluster.aks.name,
     "--overwrite-existing"
